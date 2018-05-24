@@ -191,12 +191,12 @@ generate_C <- function(X, R){
   E <- which(R != 0, arr.ind = TRUE)
   nE <- nrow(E)
   p <- ncol(X)
-  C <- Matrix(0, nE, p, sparse=TRUE)
+  C <- matrix(0, nE, p, sparse=TRUE)
   for(i in 1:nE){
     C[i, E[i, 1]] <- C[i, E[i, 2]] <- 1
   }
   CNorm <- 2 * max(rowSums(C^2))
-  return(list(C = C, CNorm = CNorm))
+  return(list(C = Matrix(C, sparse=TRUE), CNorm = CNorm))
 }
 
 BIC_GP <- function(Ker_X, Ker_Y, beta){
