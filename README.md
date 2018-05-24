@@ -34,7 +34,10 @@ We propose a sparse learning algorithm for network graph data, called Graph-Orie
 ## An example
 
 ```
-library(GOSPEL)
+library("rARPACK")
+library("bayesopt")
+library("Matrix")
+library("GOSPEL")
 files <- list.files(system.file("data",package="GOSPEL"),full.names=TRUE)
 load(files[1])
 p <- dim(X)[3]
