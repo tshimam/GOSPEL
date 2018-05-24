@@ -1,7 +1,3 @@
-require("rARPACK")
-require("bayesopt")
-require("Matrix")
-
 GOSPEL <- function(Ker_X, Ker_Y, CKA_mat, lambda_1 = 0.01, tau, lambda_2){
   if(missing(tau)) tau <- quantile(unique(CKA_mat[CKA_mat!=1]),probs=seq(from=0.75,to=0.95,length=10))
   if(missing(lambda_2)) lambda_2 <- 10^(seq(from=-2,to=2,length=10))
