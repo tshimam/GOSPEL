@@ -163,7 +163,7 @@ gen_kernel_matrix <- function(X, Y, gamma){
     return(list(Ker_X = Ker_X, Ker_Y = Ker_Y))
 }
 
-calculate_R <- function(X, Y, gamma, verbose = TRUE){
+calculate_R <- function(X, Y, gamma, verbose = FALSE){
   size <- dim(X)
   n_node <- size[1]
   p <- size[3]
