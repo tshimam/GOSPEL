@@ -96,7 +96,7 @@ C, CNorm, maxiter = 1e2, tol = 1e-3, b0, mu = 1e-1){
     } else {
       grad <- t(X) %*% (X %*% w - Y) + t(C) %*% A
     }
-    beta_new <- soft_threshold(w - (1/L) * grad, lambda_2 / L)
+    beta_new <- soft_threshold(as.vector(w - (1/L) * grad), lambda_2 / L)
     # Update beta
     density[iter] <- sum(beta_new != 0) / p
     # Update theta
