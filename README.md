@@ -21,7 +21,7 @@ To install GOSPEL package, we start R and run the following codes on R console:
 ```
 library(devtools)
 install_github("hoxo-m/bayesopt")
-install_github("infinite-point/GOSPEL")
+install_github("tshimam/GOSPEL")
 ```
 
 <strong>Note:</strong>
