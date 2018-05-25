@@ -196,7 +196,7 @@ generate_C <- function(X, R){
     C[i, E[i, 1]] <- C[i, E[i, 2]] <- 1
   }
   CNorm <- 2 * max(rowSums(C^2))
-  return(list(C = Matrix(C, sparse=TRUE), CNorm = CNorm))
+  return(list(C = C, CNorm = CNorm))
 }
 
 BIC_GP <- function(Ker_X, Ker_Y, beta){
