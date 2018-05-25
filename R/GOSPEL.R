@@ -124,8 +124,8 @@ soft_threshold <- function(vv, lambda_2){
   p.ind <- which(vv > lambda_2)
   n.ind <- which(vv < - lambda_2)
   res <- Matrix(0, n, 1, sparse=TRUE)
-  res[p.ind] <- vv[p.ind] - lambda_2
-  res[n.ind] <- vv[n.ind] + lambda_2
+  if(length(p.ind)!=0) res[p.ind] <- vv[p.ind] - lambda_2
+  if(length(n.ind)!=0) res[n.ind] <- vv[n.ind] + lambda_2
   return(res)
 }
 
@@ -134,8 +134,8 @@ hard_threshold <- function(vv, lambda_2){
   p.ind <- which(vv > lambda_2)
   n.ind <- which(vv < - lambda_2)
   res <- Matrix(0, n, 1, sparse=TRUE)
-  res[p.ind] <- lambda_2
-  res[n.ind] <- - lambda_2
+  if(length(p.ind)!=0) res[p.ind] <- lambda_2
+  if(length(n.ind)!=0) res[n.ind] <- - lambda_2
   return(res)
 }
 
