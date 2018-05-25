@@ -191,7 +191,7 @@ generate_C <- function(X, R){
   E <- which(R != 0, arr.ind = TRUE)
   nE <- nrow(E)
   p <- ncol(X)
-  C <- matrix(0, nE, p, sparse=TRUE)
+  C <- matrix(0, nE, p)
   for(i in 1:nE){
     C[i, E[i, 1]] <- C[i, E[i, 2]] <- 1
   }
