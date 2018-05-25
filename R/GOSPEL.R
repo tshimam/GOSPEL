@@ -89,7 +89,7 @@ C, CNorm, maxiter = 1e2, tol = 1e-3, b0, mu = 1e-1){
 
   for(iter in 1:maxiter){
     # Update alpha
-    A <- hard_threshold(as.matrix(C %*% w / mu), 1)
+    A <- hard_threshold(as.vector(C %*% w / mu), 1)
     # Update gradient
     if(p < 2*n && p < 10000){
       grad <- XX %*% w - XY + t(C) %*% A
@@ -120,7 +120,7 @@ C, CNorm, maxiter = 1e2, tol = 1e-3, b0, mu = 1e-1){
 }
 
 soft_threshold <- function(vv, lambda_2){
-  n <- nrow(vv)
+  n <- length(vv)
   p.ind <- which(vv > lambda_2)
   n.ind <- which(vv < - lambda_2)
   res <- Matrix(0, n, 1, sparse=TRUE)
@@ -130,7 +130,7 @@ soft_threshold <- function(vv, lambda_2){
 }
 
 hard_threshold <- function(vv, lambda_2){
-  n <- nrow(vv)
+  n <- length(vv)
   p.ind <- which(vv > lambda_2)
   n.ind <- which(vv < - lambda_2)
   res <- Matrix(0, n, 1, sparse=TRUE)
